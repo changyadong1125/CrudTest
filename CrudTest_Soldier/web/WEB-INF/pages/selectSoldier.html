@@ -1,0 +1,43 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" href="#"/>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base th:href="@{/}" href="/CrudTest_Soldier/web/">
+</head>
+<body>
+<div align="center">
+    <h2>士兵花名单</h2>
+</div>
+
+<table border="1" align="center">
+    <tr>
+        <th align="left" colspan="3">
+            <form action="Servlet?method=showSoldier" method="post">
+                <input type="text" th:value="${application.message}">
+                <button>返回</button>
+            </form>
+        </th>
+    </tr>
+    <tr>
+        <th>士兵编号</th>
+        <th>士兵姓名</th>
+        <th>士兵武器</th>
+    </tr>
+    <tr th:each="soldier:${application.list2}">
+        <th th:text="${soldier.soldierID}"></th>
+        <th th:text="${soldier.soldierName}"></th>
+        <th th:text="${soldier.soldierWeapon}"></th>
+    </tr>
+</table>
+</body>
+</html>
+
+
+
+
+
+
+

@@ -1,0 +1,52 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="shortcut icon" href="#"/>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <base th:href="@{/}" href="/CrudTest_Soldier/web/">
+</head>
+<body>
+<div id="app">
+    <div align="center">
+        <h2>士兵管理系统</h2>
+    </div>
+    <table border="1" align="center">
+        <tr>
+            <th align="left" colspan="5">
+                <form action="Servlet?method=selectSoldier" method="post">
+                    <input type="text" th:value="${message}" name="select">
+                    <button>查询</button>
+                </form>
+            </th>
+        </tr>
+        <tr>
+            <th>士兵编号</th>
+            <th>士兵姓名</th>
+            <th>士兵武器</th>
+            <th>操作一</th>
+            <th>操作二</th>
+        </tr>
+        <tr th:each="soldier:${list}">
+            <th th:text="${soldier.soldierID}"></th>
+            <th th:text="${soldier.soldierName}"></th>
+            <th th:text="${soldier.soldierWeapon}"></th>
+            <th>
+                <form th:action="@{/Servlet(method='toRepSoldier',id=${soldier.soldierID})}" method="post">
+                    <input type="submit" value="修改">
+                </form>
+            </th>
+            <th>
+                <a th:href="@{/Servlet(method='delSoldier',id=${soldier.soldierID})}">删除</a>
+            </th>
+        </tr>
+        <tr>
+            <th colspan="5">
+                <a href="Servlet?method=toAddSoldier">添加士兵</a>
+            </th>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

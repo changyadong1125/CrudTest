@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base th:href="@{/}">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/Servlet(method=repSoldier)}" method="post">
+  <table border="1" align="center">
+        <input type="hidden" name="soldierId" th:value="${id}">
+    <tr>
+      <th>姓名:</th>
+      <th>
+        <input type="text" name="soldierName" th:value="${name}">
+      </th>
+    </tr>
+    <tr>
+      <th>武器</th>
+      <th>
+        <input type="text" name="soldierWeapon" th:value="${weapon}">
+      </th>
+    </tr>
+    <tr>
+      <th colspan="2">
+        <input type="submit" value="提交">
+      </th>
+    </tr>
+
+  </table>
+
+</form>
+</body>
+</html>
